@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إصدار شهادة صحية</title>
+    
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            direction: rtl;
+        }
+
+        /* Splash Screen Styles */
+        .splash-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            animation: fadeSplash 2s ease-in-out forwards;
+        }
+
+        .splash-screen img {
+            width: 350px;
+            height: auto;
+        }
+
+        @keyframes fadeSplash {
+            0% {
+                opacity: 1;
+                visibility: visible;
+            }
+            90% {
+                opacity: 1;
+                visibility: visible;
+            }
+            100% {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+
+        .header {
+            background-color: #006C67;
+            padding: 15px 37px;
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .menu-icon {
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .logo img {
+            height: 45px;
+            width: auto;
+        }
+
+        /* Updated Menu Styles */
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: none;
+            z-index: 998;
+         }
+
+        .side-menu {
+            position: fixed;
+            top: -100vh;
+            right: 0;
+            left: 0;
+            background-color: #006C67;
+            z-index: 999;
+            transition: top 0.3s ease;
+            padding: 80px 20px 20px;
+        }
+
+        .menu-open .side-menu {
+            top: 0;
+        }
+
+        .menu-open .menu-overlay {
+            display: block;
+        }
+
+        .menu-items {
+            display: flex;
+            flex-direction: column;
+            padding: 1.5px;
+        }
+
+        .menu-item {
+            color: white;
+            text-decoration: none;
+            padding: 9px 0.2px;
+            font-size: 15.2px;
+            border-bottom: 0px solid rgba(255, 255, 255, 0.1);
+            transition: background-color 0.3s ease;
+        }
+
+        .menu-item:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 60px auto 0;
+            padding: 20px;
+            background-color: #fff;
+        }
+
+        .title {
+            text-align: center;
+            margin: 29px 0 30px;
+            font-size: 24px;
+            color: #4D4D4F;
+            font-weight: 700;
+        }
+
+        .profile-photo {
+            width: 150px;
+            height: 200px;
+            margin: 20px auto 30px;
+            display: block;
+            object-fit: cover;
+            border: 1px solid #ddd;
+        }
+
+        .form-group {
+            margin-top: 18px;
+            margin-bottom: 12px;
+            background-color: #F5F9FC;
+            border-radius: 5px;
+            padding: 12px 15px;
+            border: 1px solid #E5E9EB;
+            position: relative;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .section-title {
+            color: #000;
+            font-size: 14.2px;
+            font-weight: bold;
+            position: absolute;
+            top: -15px;
+            right: 0;
+            background-color:;
+            padding: 0 8px;
+        }
+
+        .form-value {
+            color: #4D4D4F;
+            font-size: 14px;
+            word-wrap: break-word;
+            line-height: 1.4;
+            padding: 4.5px 0;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px 20px 20px;
+            margin-top: 40px;
+            border-top: 25px solid #eee;
+        }
+
+        .footer-text {
+            color: #666;
+            font-size: 10px;
+            margin-bottom: 15px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            color: #666;
+            font-size: 10px;
+        }
+
+        .footer-links a {
+            color: #666;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #006C67;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            .title {
+                font-size: 28.5px;
+            }
+            .form-group {
+                padding: 10px 12px;
+            }
+            .form-value {
+                font-size: 13px;
+            }
+        }
+        
+        footer img {
+            height : 55px;
+        }
+        
+        
+        
+    </style>
+</head>
+<body>
+    <!-- Splash Screen -->
+    <div class="splash-screen">
+        <img src="https://i.ibb.co/BttsMQB/Screenshot-20241025-132635.jpg" alt="Screenshot-20241025-132635" border="0" /></a>
+    </div>
+
+    <header class="header">
+        <div class="menu-icon">☰</div>
+        <div class="logo">
+            <img src="https://i.ibb.co/PgQNZqf/1000923069.png" alt="1000923069" border="0" /></a>
+        </div>
+    </header>
+
+    <!-- Menu Overlay and Side Menu -->
+    <div class="menu-overlay"></div>
+    <div class="side-menu">
+        <div class="menu-items">
+            <a href="#" class="menu-item"> عن بلدي  ▾</a> 
+          
+          
+          
+                   
+            <a href="#" class="menu-item">مركز المعرفة ▾</a>
+            <a href="#" class="menu-item">الخدمات ▾</a>
+            <a href="#" class="menu-item">الاستعلامات ▾</a>
+            <a href="#"
+            
+            
+             class="menu-item">المنصات ▾</a>
+            <a href="#" class="menu-item">تواصل معنا ▾</a>
+        </div>
+    </div>
+
+    <!-- Rest of your content remains the same -->
+    <div class="container">
+        <h1 class="title">الشهادة الصحية الموحدة</h1>   
+        
+      
+        
+        <img src="https://i.ibb.co/NmQ3cH2/1000926737.png" alt="الصورة الشخصية" class="profile-photo">
+
+        <div class="form-group">
+            <div class="section-title">الامانة</div>
+            <div class="form-value">أمانة محافظة الطائف</div>
+        </div>
+
+        <div class="form-group">
+            <div class="section-title">البلدية</div>
+            <div class="form-value">بلدية غرب الطائف الفرعية</div>
+        </div>
+
+        <div class="form-group">
+            <div class="section-title">الاسم</div>
+            <div class="form-value">محمد خالد بن إبراهيم الدوسري</div>
+        </div>
+        
+        <div class="form-group">
+            <div class="section-title">رقم الهوية</div>
+            <div class="form-value">1015421318</div>
+        </div>
+        
+        <div class="form-group">
+            <div class="section-title">الجنس</div>
+            <div class="form-value">ذكر</div>
+        </div>
+        
+        <div class="form-group">
+            <div class="section-title">الجنسية</div>
+            <div class="form-value">السعودية</div>
+        </div>
+    
+        <div class="form-group">
+            <div class="section-title">رقم الشهادة الصحية</div>
+            <div class="form-value">470055656255</div>
+        </div>
+        
+        <div class="form-group">
+            <div class="section-title">المهنة</div>
+            <div class="form-value">مندوب مبيعات</div>
+        </div>
+        
+        <div class="form-group">
+            <div class="section-title">تاريخ إصدار الشهادة الصحية هجري</div>
+            <div class="form-value">1446/04/23</div>
+        </div>
+        
+        <div class="form-group">
+            <div class="section-title">تاريخ إصدار الشهادة الصحية ميلادي</div>
+            <div class="form-value">2024-10-26</div>
+        </div>
+        
+        <div class="form-group">
+            <div class="section-title">تاريخ نهاية الشهادة الصحية هجري</div>
+            <div class="form-value">1447/04/23</div>
+        </div>
+        
+        <div class="form-group">
+            <div class="section-title">تاريخ نهاية الشهادة الصحية ميلادي</div>
+            <div class="form-value">2025-10-26</div>
+        </div>
+        
+        <div class="form-group">
+            <div class="section-title">نوع البرنامج التثقيفي</div>
+            <div class="form-value">منشآت الغذاء</div>
+        </div>
+        
+        <div class="form-group">
+            <div class="section-title">تاريخ انتهاء البرنامج التثقيفي</div>
+            <div class="form-value">1449/04/20</div>
+        </div>
+        
+        <div class="form-group">
+            <div class="section-title">رقم الرخصة</div>
+            <div class="form-value">478001384688</div>
+        </div>
+        
+        <div class="form-group">
+            <div class="section-title">اسم المنشأة</div>
+            <div class="form-value">مطعم فيصل العنزي لتقديم الوجبات </div>
+        </div>
+        
+        <div class="form-group">
+            <div class="section-title">رقم المنشأة</div>
+            <div class="form-value">7021764138</div>
+        </div>
+
+       
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <!-- Your existing form groups here -->
+        <!-- (Keep all your existing form-group divs) -->
+
+
+
+        <footer class="footer">
+            <img src="https://i.ibb.co/X2jV205/Screenshot-20241025-150908.png" alt="Screenshot-20241025-150908" border="0" /></a>
+            
+            
+            <div class="footer-text">© 2023 وزارة الشؤون البلدية والقروية والإسكان</div>
+            <div class="footer-links">
+                <a href="#">اتصل بنا</a>
+                <a href="#">شروط الاستخدام</a>
+                <a href="#">خريطة الموقع</a>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Splash screen handling
+            setTimeout(function() {
+                const splash = document.querySelector('.splash-screen');
+                splash.style.display = 'none';
+            }, 2000);
+
+            // Menu handling
+            const menuIcon = document.querySelector('.menu-icon');
+            const menuOverlay = document.querySelector('.menu-overlay');
+            const body = document.body;
+
+            menuIcon.addEventListener('click', function() {
+                body.classList.toggle('menu-open');
+            });
+
+            menuOverlay.addEventListener('click', function() {
+                body.classList.remove('menu-open');
+            });
+        });
+    </script>
+</body>
+</html>
